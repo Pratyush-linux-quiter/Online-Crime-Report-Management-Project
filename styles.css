@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa; /* Light cyan background */
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #00796b; /* Teal background */
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #004d40; /* Darker teal on hover */
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #00796b; /* Teal color */
+}
+
+.box-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow boxes to wrap to the next line */
+    margin: 20px;
+}
+
+.box {
+    background-color: #ffcc80; /* Light orange background */
+    border: 1px solid #ffb74d; /* Darker orange border */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 250px; /* Increased width */
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.box:hover {
+    transform: scale(1.1);
+    background-color: #ffb74d; /* Darker orange on hover */
+}
+
+marquee {
+    background-color: #00796b; /* Teal background */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+marquee a {
+    color: white;
+    text-decoration: none;
+}
+
+marquee a:hover {
+    text-decoration: underline;
+}

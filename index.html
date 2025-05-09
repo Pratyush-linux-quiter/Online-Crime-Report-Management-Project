@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: url('uploads/jail.jpg') no-repeat center center fixed,  no-repeat center center fixed;
+            background-size: cover, cover;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            animation: moveBackground 30s linear infinite; /* Added animation */
+        }
+
+        @keyframes moveBackground {
+            0% {
+                background-position: 0% 0%, 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%, 100% 100%;
+            }
+            100% {
+                background-position: 0% 0%, 0% 0%;
+            }
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, box-shadow 0.3s;
+            font-family: 'Roboto', sans-serif; /* Added font */
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        nav:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-logo {
+            color: #00ff00; /* Changed color to green */
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-left: 15px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #00ff00; /* Changed color to green */
+            text-decoration: none;
+            padding: 10px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #4CAF50; /* Changed hover background color to green */
+            color: #fff;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .blinking {
+            animation: blink 2s infinite;
+            display: block;
+            color: #00ff00; /* Changed color to green */
+        }
+
+        .marquee {
+            color: #fff;
+            font-size: 1.2em;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px;
+            /* Removed background color */
+        }
+
+        .marquee span {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .box {
+            width: 30%;
+            background-color: #1E90FF; /* Changed background color to DodgerBlue */
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            background-color: #4682B4; /* Changed hover background color to SteelBlue */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .guidelines {
+            width: 45%;
+            background-color: #32CD32; /* Changed background color to LimeGreen */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .photo-gallery {
+            width: 45%; /* Changed width to 45% */
+            background: linear-gradient(135deg, #615b59, #12e0c8); /* Changed background to gradient */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeIn 2s ease-in-out;
+            margin: 20px 0; /* Added margin */
+            position: relative; /* Added position relative */
+        }
+
+        .photo-gallery .dots {
+            display: none; /* Hide dots */
+        }
+
+        .guidelines h2,
+        .photo-gallery h2 {
+            color: #fff;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .guidelines ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .guidelines ul li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: #fff;
+        }
+
+        .photo-gallery img {
+            width: 100%;
+            height: auto;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+
+        .photo-gallery .dots {
+            text-align: center;
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+        }
+
+        .photo-gallery .dots span {
+            height: 10px;
+            width: 10px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .photo-gallery .dots span.active {
+            background-color: #fff;
+        }
+
+        .welcome-text {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(to right, #1E90FF, #00ff00); /* Added gradient background */
+             background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 10px;
+            animation: zoomIn 1.5s ease-in-out;
+        }
+
+        .emergency-text {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            color: #FFD700; /* Changed color to Gold */
+            margin-top: 10px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .wanted-button-container {
+            text-align: center;
+            width: 100%; /* Make the container span the full width */
+            margin: 20px 0;
+        }
+
+        .wanted-button {
+            background-color: #FF4500; /* OrangeRed */
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            width: 100%; /* Make the button span the full width */
+            max-width: 300px; /* Optional: Set a max-width for the button */
+            margin: 0 auto; /* Center the button */
+        }
+
+        .wanted-button:hover {
+            background-color: #FF6347; /* Tomato */
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-logo">Crime Report Portal</div> <!-- Added logo/title -->
+        <ul>
+            <li><a href="admin.php">Admin</a></li>
+            <li><a href="crime_statistics.php">Crime Statistics</a></li>
+            <li><a href="about.html" id="aboutLink">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- <marquee class="marquee" behavior="slide" direction="left" scrollamount="16">
+        <span class="blinking">🚨 Dial 112 in case of any emergency 🚨</span>
+        <span class="blinking">🚨 Stay Safe Stay Alert! 🚨</span>
+        <span class="blinking">🚨 Dial 112 in case of any emergency 🚨</span>
+    </marquee> -->
+
+    <!-- <div class="emergency-text">
+        <p>🚨 Don't fear, report here! 🚨</p>
+    </div> Added emergency text -->
+
+    <h1 class="welcome-text">Welcome to the Crime Report Portal</h1> <!-- Styled welcome text -->
+
+    <div class="box-container">
+        <div class="box" onclick="location.href='report.html'">
+            <h2>Report a Crime</h2>
+        </div>
+        <div class="box" onclick="location.href='track_report.php'">
+            <h2>Track Your Report</h2>
+        </div>
+        <div class="box" onclick="location.href='contact.html'">
+            <h2>Contact Us</h2>
+        </div>
+    </div>
+
+    <div class="content-container">
+        <div class="guidelines">
+            <h2>Safety Guidelines</h2>
+            <ul>
+                <li>Always be aware of your surroundings.</li>
+                <li>Report any suspicious activity to the authorities.</li>
+                <li>Keep emergency numbers handy.</li>
+                <li>Install security systems in your home.</li>
+                <li>Stay informed about crime trends in your area.</li>
+                <li>Trust your instincts and avoid risky situations.</li> <!-- Added guideline -->
+                <li>Keep your personal information private.</li> <!-- Added guideline -->
+            </ul>
+        </div>
+
+        <div class="photo-gallery">
+       
+            <img src="uploads\crime1.jpeg" alt="Criminal 1">
+            <img src="uploads/crime2.jpeg" alt="Criminal 2">
+            <img src="uploads/crime3.jpeg" alt="Criminal 3">
+            <img src="uploads/crime5.jpeg" alt="Criminal 5">
+            <div class="dots">
+                <span class="active"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div> <!-- Closing div for .content-container -->
+
+    <div class="wanted-button-container">
+        <button class="wanted-button" onclick="location.href='index.php'">Wanted Criminals</button>
+    </div>
+
+    <script>
+        const gallery = document.querySelector('.photo-gallery');
+        const images = gallery.querySelectorAll('img');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            images.forEach((img, i) => {
+                img.style.display = i === index ? 'inline-block' : 'none';
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showSlide(currentIndex);
+        }
+
+        setInterval(nextSlide, 3000); // Change image every 3 seconds
+
+        showSlide(currentIndex);
+    </script>
+
+</body>
+
+</html>
